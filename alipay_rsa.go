@@ -44,7 +44,7 @@ func rsaVerify(data, sign string, public_key *rsa.PublicKey) error {
 
 	err := rsa.VerifyPKCS1v15(public_key, crypto.SHA1, digest, []byte(sign))
 	if err != nil {
-		log.E("VerifyPKCS1v15 fail : %v\n", err)
+		fmt.Errorf("VerifyPKCS1v15 fail : %v\n", err)
 		return err
 	}
 	return nil
@@ -59,7 +59,7 @@ func rsaVerify(data, sign string, public_key *rsa.PublicKey) error {
 func rsaDecrypt(content string, privateKey *rsa.PrivateKey) (string, error) {
 	rsaBytes, err := rsa.DecryptPKCS1v15(rand.Reader, privateKey, []byte(content))
 	if err != nil {
-		log.E("rsaSign DecryptPKCS1v15 error")
+		fmt.Errorf("rsaSign DecryptPKCS1v15 error")
 		return "", err
 	}
 	return string(rsaBytes), nil
