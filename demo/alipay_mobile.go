@@ -25,12 +25,12 @@ func RandInt(min int, max int) int {
 //POST
 //支付宝回调处理
 func AlipayMobileNotify(w http.ResponseWriter, r *http.Request) {
-	log.Panicln("alipay Notify Begin")
+	log.Println("alipay Notify Begin")
 
 	var callbackMsg = "fail"
 	defer func() {
-		log.Panicln("alipay Notify End")
-		log.Panicln("callbackMsg to alipay : %v", callbackMsg)
+		log.Println("alipay Notify End")
+		log.Println("callbackMsg to alipay : %v", callbackMsg)
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		fmt.Fprint(w, callbackMsg)
 	}()
@@ -39,13 +39,13 @@ func AlipayMobileNotify(w http.ResponseWriter, r *http.Request) {
 	r.PostForm = nil
 	r.ParseForm()
 
-	log.Panicln("==========================================================")
-	log.Panicln("Request :%v", r)
-	log.Panicln("==========================================================")
+	log.Println("==========================================================")
+	log.Println("Request :%v", r)
+	log.Println("==========================================================")
 
 	if err := alipay.VerifyMobileNotify(r, alipay.AMobileConfig); err != nil {
 		//验证失败
-		log.Panicln("verify notify fail")
+		log.Println("verify notify fail")
 		return
 	}
 
@@ -54,10 +54,10 @@ func AlipayMobileNotify(w http.ResponseWriter, r *http.Request) {
 	buyer_email := r.FormValue("buyer_email")
 	subject := r.FormValue("subject")
 
-	log.Panicln("trade_status is : %v ", trade_status)
-	log.Panicln("out_trade_no is : %v ", out_trade_no)
-	log.Panicln("buyer_email is : %v ", buyer_email)
-	log.Panicln("subject is : %v ", subject)
+	log.Println("trade_status is : %v ", trade_status)
+	log.Println("out_trade_no is : %v ", out_trade_no)
+	log.Println("buyer_email is : %v ", buyer_email)
+	log.Println("subject is : %v ", subject)
 
 	var total_fee float64
 	fmt.Sscanf(r.FormValue("total_fee"), "%f", &total_fee)
