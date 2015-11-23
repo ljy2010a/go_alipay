@@ -1,8 +1,8 @@
 package demo
 
 import (
-	"com.dy.alipay"
 	"fmt"
+	"github.com/ljy2010a/go_alipay"
 	"log"
 	"net/http"
 )

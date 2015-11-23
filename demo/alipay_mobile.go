@@ -1,9 +1,9 @@
 package demo
 
 import (
-	"com.dy.alipay"
 	"encoding/json"
 	"fmt"
+	"github.com/ljy2010a/go_alipay"
 	"log"
 	"math/rand"
 	"net/http"
