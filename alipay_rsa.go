@@ -7,7 +7,6 @@ import (
 	"crypto/sha1"
 	"encoding/base64"
 	"fmt"
-	"github.com/Centny/gwf/log"
 )
 
 /**
@@ -17,9 +16,6 @@ import (
  * return 签名结果
  */
 func rsaSign(origData string, privateKey *rsa.PrivateKey) (string, error) {
-
-	log.I("rsaSign for origData :%v ", origData)
-	// log.I("rsaSign for privateKey :%v ", privateKey)
 
 	h := sha1.New()
 	h.Write([]byte(origData))
@@ -42,7 +38,6 @@ func rsaSign(origData string, privateKey *rsa.PrivateKey) (string, error) {
  * return 验证结果
  */
 func rsaVerify(data, sign string, public_key *rsa.PublicKey) error {
-	log.I("rsaVerify \n sign ： %v \n data : %v", sign, data)
 	h := sha1.New()
 	h.Write([]byte(data))
 	digest := h.Sum(nil)
@@ -62,7 +57,6 @@ func rsaVerify(data, sign string, public_key *rsa.PublicKey) error {
  * return 解密后内容，明文
  */
 func rsaDecrypt(content string, privateKey *rsa.PrivateKey) (string, error) {
-	log.I("rsaDecrypt for content")
 	rsaBytes, err := rsa.DecryptPKCS1v15(rand.Reader, privateKey, []byte(content))
 	if err != nil {
 		log.E("rsaSign DecryptPKCS1v15 error")
