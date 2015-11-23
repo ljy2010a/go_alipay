@@ -23,7 +23,7 @@ func rsaSign(origData string, privateKey *rsa.PrivateKey) (string, error) {
 
 	s, err := rsa.SignPKCS1v15(nil, privateKey, crypto.SHA1, digest)
 	if err != nil {
-		log.E("rsaSign SignPKCS1v15 error")
+		fmt.Errorf("rsaSign SignPKCS1v15 error")
 		return "", err
 	}
 	data := base64.StdEncoding.EncodeToString(s)
