@@ -70,7 +70,7 @@ func AlipayMobileNotify(w http.ResponseWriter, r *http.Request) {
 	//该种交易状态只在一种情况下出现——开通了高级即时到账，买家付款成功后。
 
 	if trade_status == "TRADE_SUCCESS" {
-
+		log.Println("在这处理订单")
 	}
 
 	if trade_status == "TRADE_FINISHED" {
@@ -85,7 +85,6 @@ func AlipayMobileNotify(w http.ResponseWriter, r *http.Request) {
 		//1、开通了普通即时到账，买家付款成功后。
 		//2、开通了高级即时到账，从该笔交易成功时间算起，过了签约时的可退款时限（如：三个月以内可退款、一年以内可退款等）后。
 
-		log.Println("在这处理订单")
 	}
 	//	echo "success";		//请不要修改或删除
 	callbackMsg = "success"
