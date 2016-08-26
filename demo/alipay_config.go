@@ -2,6 +2,7 @@ package demo
 
 import (
 	"fmt"
+
 	alipay "github.com/ljy2010a/go_alipay"
 )
 
@@ -69,19 +70,26 @@ func initAlipayConfig() {
 	}
 
 	alipay.AMobileConfig.Notify_url = fmt.Sprintf("http://%v/alipay-mobile-notify", host)
-	alipay.Init(alipay.AMobileConfig)
+	alipay.InitKeys(alipay.AMobileConfig)
 
-	alipay.AWapConfig.Notify_url = fmt.Sprintf("http://%v/alipay-wap-notify", host)
-	alipay.AWapConfig.Wap_merchant_url = fmt.Sprintf("http://%v/merchant", host)
-	alipay.AWapConfig.Wap_callback_url = fmt.Sprintf("http://%v/alipay-wap-callback", host)
-	alipay.AWapConfig.Show_order_url = fmt.Sprintf("http://%v/orderDetail", host)
+	alipay.AWapConfig.Notify_url = fmt.Sprintf(
+		"http://%v/alipay-wap-notify", host)
+	alipay.AWapConfig.Wap_merchant_url = fmt.Sprintf(
+		"http://%v/merchant", host)
+	alipay.AWapConfig.Wap_callback_url = fmt.Sprintf(
+		"http://%v/alipay-wap-callback", host)
+	alipay.AWapConfig.Show_order_url = fmt.Sprintf(
+		"http://%v/orderDetail", host)
 
-	alipay.Init(alipay.AWapConfig)
+	alipay.InitKeys(alipay.AWapConfig)
 
-	alipay.AWebConfig.Notify_url = fmt.Sprintf("http://%v/alipay-web-notify", host)
-	alipay.AWebConfig.Return_url = fmt.Sprintf("http://%v/alipay-web-return", host)
-	alipay.AWebConfig.Show_order_url = fmt.Sprintf("http://%v/orderDetail", host)
+	// !!!!!! web no need to init !!!!!!
 
-	alipay.Init(alipay.AWebConfig)
+	alipay.AWebConfig.Notify_url = fmt.Sprintf(
+		"http://%v/alipay-web-notify", host)
+	alipay.AWebConfig.Return_url = fmt.Sprintf(
+		"http://%v/alipay-web-return", host)
+	alipay.AWebConfig.Show_order_url = fmt.Sprintf(
+		"http://%v/orderDetail", host)
 
 }

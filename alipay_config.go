@@ -87,7 +87,7 @@ xxxxxxxxxxx
 	Cacert:        "Cacert",
 	Transport:     "http",
 	Service:       "mobile.securitypay.pay",
-	Seller_id:     "itdayang@gmail.com",
+	Seller_id:     "xxxxxxxxxxx@gmail.com",
 	Notify_url:    "/alipayMobile/notify",
 	Payment_type:  "1",
 }
@@ -111,7 +111,7 @@ xxxxxxxxxxx
 	Transport:   "http",
 	Service:     "alipay.wap.auth.authAndExecute",
 	Wap_Service: "alipay.wap.trade.create.direct",
-	Seller_id:   "itdayang@gmail.com",
+	Seller_id:   "xxxxxxxxxxx@gmail.com",
 	Notify_url:  "/api/pub/alipayWap/notify",
 	//	Payment_type:  "1",
 	Wap_merchant_url: "/api/pub/alipayWap/merchant",
@@ -120,7 +120,7 @@ xxxxxxxxxxx
 	Show_order_url:   "/paymentStatus.html",
 }
 
-func Init(alipayConfig *AlipayConfig) error {
+func InitKeys(alipayConfig *AlipayConfig) error {
 
 	log.Println("init rsakeys begin")
 
