@@ -6,7 +6,6 @@
 
 ## Useage
 
-   import alipay "github.com/ljy2010a/go_alipay"   
+   Import alipay "github.com/ljy2010a/go_alipay"   
    Copy the demo pkg as your own
-   
    
