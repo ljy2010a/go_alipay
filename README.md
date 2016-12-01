@@ -7,6 +7,6 @@
 ## Useage
 
    import alipay "github.com/ljy2010a/go_alipay"   
-   juset copy the demo pkg as your own
+   Copy the demo pkg as your own
    
    
